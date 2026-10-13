@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nihongo Benkyou Shimasu!!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ribeye&display=swap" rel="stylesheet">
+    
+    <!-- CSS Styles -->
+    <link href="styles/global.css" type="text/css" rel="stylesheet">
+    <link href="styles/TextMessage.css" type="text/css" rel="stylesheet">
+    <link href="styles/SceneTransition.css" type="text/css" rel="stylesheet">
+    <link href="styles/KeyboardMenu.css" type="text/css" rel="stylesheet">
+    <link href="styles/Hud.css" type="text/css" rel="stylesheet">
+    <link href="styles/TitleScreen.css" type="text/css" rel="stylesheet">
+    
+    <!-- Battle CSS -->
+    <link href="styles/Battle.css" type="text/css" rel="stylesheet">
+    <link href="styles/Combatant.css" type="text/css" rel="stylesheet">
+    <link href="styles/SubmissionMenu.css" type="text/css" rel="stylesheet">
+    <link href="styles/Team.css" type="text/css" rel="stylesheet">
+    <link href="styles/Menus.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="game-container">
+      <canvas class="game-canvas" width="352" height="198"></canvas>
+    </div>
+
+    <!-- Controls untuk Layar Mobile / D-Pad -->
+    <div class="mobile-controls">
+      <div class="dpad">
+        <button class="dpad-up">&#9650;</button>
+        <div class="dpad-middle">
+          <button class="dpad-left">&#9664;</button>
+          <button class="dpad-right">&#9654;</button>
+        </div>
+        <button class="dpad-down">&#9660;</button>
+      </div>
+      <div class="action-buttons">
+        <button class="btn-action">A</button>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <script src="Content/pizzas.js"></script>
+    <script src="Content/actions.js"></script>
+    <script src="Content/enemies.js"></script>
+
+    <!-- State -->
+    <script src="State/PlayerState.js"></script>
+
+    <!-- Scripts Inti Game -->
+    <script src="utils.js"></script>
+    <script src="DirectionInput.js"></script>
+    <script src="Overworld.js"></script>
+    <script src="GameObject.js"></script>
+    <script src="Person.js"></script>
+    <script src="PizzaStone.js"></script>
+    <script src="Sprite.js"></script>
+    <script src="OverworldMap.js"></script>
+    <script src="OverworldEvent.js"></script>
+    <script src="OverworldMaps.js"></script>
+    <script src="TextMessage.js"></script>
+    <script src="KeyPressListener.js"></script>
+    <script src="RevealingText.js"></script>
+    <script src="SceneTransition.js"></script>
+    <script src="KeyboardMenu.js"></script>
+    <script src="Hud.js"></script>
+    <script src="PauseMenu.js"></script>
+    <script src="CraftingMenu.js"></script>
+    <script src="Progress.js"></script>
+    <script src="TitleScreen.js"></script>
+
+    <!-- Battle System -->
+    <script src="Battle/Battle.js"></script>
+    <script src="Battle/Combatant.js"></script>
+    <script src="Battle/Team.js"></script>
+    <script src="Battle/SubmissionMenu.js"></script>
+    <script src="Battle/ReplacementMenu.js"></script>
+    <script src="Battle/BattleEvent.js"></script>
+    <script src="Battle/TurnCycle.js"></script>
+    <script src="Battle/BattleAnimations.js"></script>
+
+    <!-- Entry Point -->
+    <script src="init.js"></script>
+
+  </body>
+</html>

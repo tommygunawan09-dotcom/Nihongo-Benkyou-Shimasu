@@ -1,0 +1,176 @@
+:root {
+  --border-color: #291D4D;
+  --dialog-background: #FFF3B4;
+
+  --menu-background: #FFE8D2;
+  --menu-border-color: #A48465;
+  --menu-font-color: #3A160D;
+  --menu-selected-background: #7fc2ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Mengunci Layar Utama di Tengah Mutlak */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+  background-color: #7fc2ff !important;
+  display: grid !important;
+  place-items: center !important;
+}
+
+/* 1. Mencegah browser menghaluskan/membuat blur pixel art */
+.game-canvas {
+  image-rendering: pixelated;     /* Chrome, Edge, Safari */
+  image-rendering: crisp-edges;   /* Firefox */
+  
+  width: 100%;
+  height: 100%;
+  object-fit: contain;            /* Menjaga proporsi agar tidak gepeng/melar */
+}
+
+/* 2. Membuat wadah game memenuhi layar HP */
+.game-container {
+  position: relative;
+  width: 100vw;                   /* Memenuhi lebar HP */
+  height: 100vh;                  /* Memenuhi tinggi HP */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;         /* Background luar hitam rapi */
+  overflow: hidden;
+}
+
+/* Sembunyikan Teks Keyboard */
+.how-to-play {
+  display: none;
+}
+
+/* Kontrol Transparan Melayang ala Emulator */
+.mobile-controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  box-sizing: border-box;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+.dpad, .action-buttons {
+  pointer-events: auto;
+}
+
+.dpad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Mengatur jarak vertikal & horizontal D-Pad ala PPSSPP */
+.dpad-middle {
+  display: flex;
+  gap: 64px;
+  margin: 21px 0;
+}
+
+/* Styling Tombol D-Pad */
+.dpad button {
+  width: 55px;
+  height: 55px;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  touch-action: manipulation;
+  outline: none;
+  backdrop-filter: blur(2px);
+  -webkit-tap-highlight-color: transparent; 
+}
+
+.btn-action {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(231, 76, 60, 0.6);
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  touch-action: manipulation;
+  outline: none;
+  backdrop-filter: blur(2px);
+}
+
+.dpad button:active, .btn-action:active {
+  background: rgba(255, 255, 255, 0.6);
+  color: #000;
+}
+
+/* 3. Text Message Box (Diperbaiki agar tidak tertutup D-Pad & Tombol A) */
+.TextMessage {
+  position: absolute;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  bottom: 80px !important;
+  width: 60% !important;
+  max-width: 500px !important;
+  height: 80px !important;
+  padding: 8px 12px !important;
+  background: var(--menu-background) !important;
+  border: 2px solid var(--menu-border-color) !important;
+  border-radius: 8px !important;
+  color: var(--menu-font-color) !important;
+  z-index: 100001 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.TextMessage_p {
+  margin: 0 !important;
+  font-size: 16px !important;
+  line-height: 1.3 !important;
+}
+
+.TextMessage_button {
+  margin: 0 !important;
+  font-size: 14px !important;  
+  padding: 3px 10px !important;
+  -webkit-appearance: none !important;
+  background: var(--menu-border-color) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  font-family: inherit !important;
+  cursor: pointer !important;
+
+  position: absolute !important;
+  right: 8px !important;
+  bottom: 8px !important;
+}
+
+.TextMessage_button:active {
+  opacity: 0.8;
+}
+
+/* 4. Memperbaiki Posisi Kotak Hijau / Grid Overlay agar Geser ke Atas Kanan D-Pad */
+#grid-overlay,
+.grid-info,
+.marker-info,
+div[class*="grid"],
+div[id*="grid"] {
+  position: absolute !important;
+  top: 10px !important;
+  left: 140px !important;       /* Geser koordinat X ke kanan agar tidak menabrak D-Pad */
+  z-index: 100000 !important;
+}
